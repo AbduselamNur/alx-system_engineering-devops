@@ -1,0 +1,25 @@
+What happens when you type https://www.google.com
+ in your browser and press Enter
+
+When you type https://www.google.com
+ in your browser and press Enter, the following steps happen:
+
+1. DNS request: Your browser sends a request to the Domain Name System (DNS) to translate the domain name www.google.com
+ into an IP address. The DNS is a distributed database that maps domain names to IP addresses, which are the numerical addresses that computers use to communicate with each other.
+
+2. TCP/IP: Once your browser has the IP address for www.google.com
+, it establishes a TCP/IP connection with the Google server. TCP/IP is a suite of protocols that governs how data is transmitted over the internet.
+
+3. Firewall: The Google server's firewall checks the incoming connection to ensure it is authorized. A firewall is a security system that monitors and controls incoming and outgoing network traffic.
+
+4. HTTPS/SSL: Your browser and the Google server negotiate an HTTPS connection. HTTPS is a secure communication protocol that uses SSL/TLS to encrypt data in transit.
+
+5. Load balancer: The Google server's load balancer distributes the traffic across multiple web servers. A load balancer is a device or software that distributes network traffic across multiple servers to improve performance and reliability.
+
+6. Web server: One of the Google web servers receives the request and generates a response. A web server is a computer program that delivers web pages to users.
+
+7. Application server: The web server may then forward the request to an application server, which is a program that runs web applications. Application servers are responsible for processing requests and generating responses for dynamic web pages.
+
+8. Database: The application server may query a database to retrieve the data needed to generate the response. A database is a collection of data that is organized and stored electronically.
+
+The response from the application server is then passed back to the web server, the load balancer, and your browser. Your browser then renders the response and displays the web page to you.
