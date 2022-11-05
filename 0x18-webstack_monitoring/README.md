@@ -44,4 +44,9 @@ For this task head to https://www.datadoghq.com/ and sign up for a free Datadog 
 	* You can validate it by using this API
 	* If needed, you will need to update the hostname of your server
 
+### 1. Monitor some metrics
 
+Among the litany of data your monitoring service can report to you are system metrics. You can use these metrics to determine statistics such as reads/writes per second, which can help your company determine if/how they should scale. Set up some monitors within the Datadog dashboard to monitor and alert you of a few. You can read about the various system metrics that you can monitor here: System Check.
+
+* Set up a monitor that checks the number of read requests issued to the device per second.
+* Set up a monitor that checks the number of write requests issued to the device per second.
