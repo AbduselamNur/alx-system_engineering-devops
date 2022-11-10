@@ -43,3 +43,5 @@ For this task head to https://www.datadoghq.com/ and sign up for a free Datadog 
 * Your server web-01 should be visible in Datadog under the host name XX-web-01
 	* You can validate it by using this API
 	* If needed, you will need to update the hostname of your server
+
+
