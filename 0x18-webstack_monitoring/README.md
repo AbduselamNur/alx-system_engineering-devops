@@ -29,3 +29,4 @@ Web stack monitoring can be broken down into 2 categories:
 * The first line of all your Bash scripts should be exactly #!/usr/bin/env bash
 * The second line of all your Bash scripts should be a comment explaining what is the script doing
 
+## `Tasks | Mandatory`
