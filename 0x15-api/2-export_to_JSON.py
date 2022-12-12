@@ -2,7 +2,7 @@
 """ Module Gather data from an API
     And Export to csv file
 """
-import csv
+import json
 import requests
 import sys
 
@@ -16,10 +16,12 @@ if __name__ == "__main__":
     emp_res = requests.get(emp_url).json()
     todo_res = requests.get(todo_url).json()
     emp_name = emp_res.get('name')
-    file_name = emp_id + ".csv"
+    file_name = emp_id + ".json"
+    data = {emp_id: []}
+    for todo in todo_res:
+        data[emp_id].append({
+            "task": todo.get('title'),
+            "completed": todo.get('complated'),
+            "username": todo.get('username')})
     with open(file_name, mode='w') as f:
-        writer = csv.writer(f, delimiter=',', quotechar='"',
-                            quoting=csv.QUOTE_ALL)
-        for todo in todo_res:
-            writer.writerow([emp_id, emp_res.get('username'),
-                            todo.get("completed"), todo.get("title")])
+        json.dump(data, f)
