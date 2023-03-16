@@ -63,3 +63,17 @@ Requirements:
 * When querying Nginx at its root / with a GET request (requesting a page) using curl, it must return a page that contains the string Hello World!
 * As an answer file, write a Bash script that configures a new Ubuntu machine to respect above requirements (this script will be run on the server itself)
 * You can’t use systemctl for restarting nginx
+
+### 2. Setup a domain name
+
+.TECH Domains is one of the top domain providers. They are known for the stability and quality of their DNS hosting solution. We partnered with .TECH Domains so that you can learn about DNS.
+
+.TECH Domains worked with domain name registrars to give you access to a free domain name for a year. Please get the promo code in your tools space. Feel free to drop a thank you tweet for .TECH Domains.
+
+Provide the domain name in your answer file.
+
+Requirement:
+
+* provide the domain name only (example: foobar.tech), no subdomain (example: www.foobar.tech)
+* configure your DNS records with an A entry so that your root domain points to your web-01 IP address Warning: the propagation of your records can take time (~1-2 hours)
+* go to your profile and enter your domain in the Project website url field
