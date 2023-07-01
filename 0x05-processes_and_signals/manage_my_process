@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Indefinitely writes "I am alive!" to a file
 
 NAME=/tmp/my_process
 sudo touch $NAME
