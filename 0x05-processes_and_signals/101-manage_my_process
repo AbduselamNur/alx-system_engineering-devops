@@ -3,14 +3,14 @@
 
 FILE="/var/run/my_process.pid"
 
-create_new()
+create()
 {
     sudo touch $FILE
     sudo bash -c "echo $$ > $FILE"
 }
 
 if [ "$1" == "start" ]; then
-    create_new
+    create
     ./manage_my_process &
     echo "manage_my_process started"
 
