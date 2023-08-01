@@ -15,7 +15,7 @@
 	* The first line of all your Bash scripts should be exactly #!/usr/bin/env ruby
 	* All your regex must be built for the Oniguruma library
 
-## `Tasks | Mandatory`
+### `Tasks | Mandatory`
 
 		0. Simply matching School
 
@@ -33,3 +33,12 @@
 
 		7. OMG WHY ARE YOU SHOUTING?
 
+### `Tasks | Advanced`
+
+		8. Textme
+
+Requirements:
+* Your script should output: [SENDER],[RECEIVER],[FLAGS]
+* The sender phone number or name (including country code if present)
+* The receiver phone number or name (including country code if present)
+The flags that were used
