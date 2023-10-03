@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
-# Install and configure HAproxy on your lb-01 server.
-sudo apt-get -y update
-sudo apt-get install -y --no-install-recommends software-properties-common
-sudo add-apt-repository -y ppa:vbernat/haproxy-2.8
-sudo apt-get install -y haproxy=2.8.\*
-
-echo "ENABLED=1" > /etc/default/haproxy
-echo "
-  listen load_balancer
-  bind *:80
-  mode http
-  balance roundrobin
-  option httpclose
-  option forwardfor
-  server 22930-web-01 34.239.207.57:80 check
-  server 22930-web-02 100.26.216.20:80 check
-" >> /etc/haproxy/haproxy.cfg
-
-sudo service haproxy start
+# Install and configure HAProxy load balancer to our server 1b-01
+# Configure the HAProcy to send traffic to the two servers
+# Distribute using RoundRobin algorithm
+# Make the HAProxy managable via init script
+sudo apt-get update -y
+sudo apt-get install haproxy -y
+server_config=\
+"
+frontend  abdi_frontend
+        bind *:80
+        mode http
+        default_backend abdi_backend
+backend  abdi_backend
+        balance roundrobin
+        server 22930-web-01 34.239.207.57:80 check
+        server 22930-web-02 100.26.216.20:80 check
+"
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
