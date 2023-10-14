@@ -1,0 +1,30 @@
+global
+        maxconn 2048
+        tune.ssl.default-dh-param 2048
+
+defaults
+        option forwardfor
+        option http-server-close
+
+frontend  abdi_frontend
+        bind *:80
+        reqadd X-Forwarded-Proto:\ http
+        mode http
+        default_backend abdi_backend
+
+frontend www-https
+        bind *:443 ssl crt /etc/haproxy/certs/www.abduselam.tech.pem
+        reqadd X-Forwarded-Proto:\ https
+        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+        use_backend letsencrypt-backend if letsencrypt-acl
+        default_backend abdi_backend
+
+backend  abdi_backend
+        balance roundrobin
+        redirect scheme https if !{ ssl_fc }
+        mode http
+        server 22930-web-01 34.239.207.57:80 check
+        server 22930-web-02 100.26.216.20:80 check
+
+backend letsencrypt-backend
+        server letsencrypt 127.0.0.1:54321
