@@ -2,7 +2,6 @@
 """ Module All Gather data from an API Json"""
 import json
 import requests
-import sys
 
 
 if __name__ == "__main__":
