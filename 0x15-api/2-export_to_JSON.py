@@ -21,7 +21,7 @@ if __name__ == "__main__":
     for todo in todo_res:
         data[emp_id].append({
             "task": todo.get('title'),
-            "completed": todo.get('complated'),
-            "username": todo.get('username')})
+            "completed": todo.get("completed"),
+            "username": emp_res.get('username')})
     with open(file_name, mode='w') as f:
         json.dump(data, f)
