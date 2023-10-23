@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module All Gather data from an API """
+""" Module All Gather data from an API Json"""
 import json
 import requests
 import sys
