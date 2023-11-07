@@ -8,7 +8,7 @@ def recurse(subreddit, hot_list=[], after=None):
     A function that queries the Reddit API
     and prints the titles of the first 10 hot posts listed
     for a given subreddit."""
-    url = 'https://www.reddit.com/r/{}/hot.json?limit=10'.format(subreddit)
+    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     headers = {'User-Agent': 'My-User-Agent'}
     params = {'after': after, 'limit': 100}
     res = requests.get(url, headers=headers, params=params,
